@@ -1,8 +1,14 @@
+import Link from "next/link";
+
 export default function ProductCard({ product }) {
   return (
     <div className="border p-4 rounded-xl shadow-sm hover:shadow-lg transition">
       <img src={product.image} alt={product.title} className="h-48 w-full object-contain mb-4" />
-      <h2 className="font-semibold text-lg line-clamp-1">{product.title}</h2>
+      <Link href={`/product/${product.id}`}>
+        <h2 className="font-semibold text-lg line-clamp-1 hover:text-blue-600 cursor-pointer">
+          {product.title}
+        </h2>
+      </Link>
       <p className="text-gray-500 text-sm mb-2">{product.category}</p>
       <div className="flex justify-between items-center mt-4">
         <span className="text-xl font-bold text-green-600">${product.price}</span>
